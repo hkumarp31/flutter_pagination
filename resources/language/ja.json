@@ -1,0 +1,21 @@
+{
+  "tournaments_played": "プレーしたトーナメント",
+  "tournaments_won" : "トーナメントが勝ちました",
+  "winning_percentage" : "勝率",
+  "username" : "ユーザー名",
+  "password" : "パスワード",
+  "sign_in" : "サインイン",
+  "please_enter_username" : "ユーザー名を入力してください",
+  "username_should_be_more_than_3_characters" : "ユーザー名は3文字以上にする必要があります",
+  "username_should_not_be_more_than_10_characters" : "ユーザー名は10文字以内にする必要があります",
+  "please_enter_password" : "パスワードを入力してください",
+  "password_should_be_more_than_3_characters" : "パスワードは3文字以上である必要があります",
+  "password_should_not_be_more_than_11_characters" : "パスワードは11文字以内にする必要があります",
+  "please_enter_correct_password" : "正しいパスワードを入力してください",
+  "please_enter_correct_username" : "正しいユーザー名を入力してください",
+  "rating" : "評価",
+  "recommended_for_you" : "あなたにおすすめ",
+  "okay" : "はい",
+  "english" : "英語",
+  "japanese" : "日本語"
+}

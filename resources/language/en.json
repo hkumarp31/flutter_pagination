@@ -1,0 +1,21 @@
+{
+  "tournaments_played": "Tournaments played",
+  "tournaments_won" : "Tournaments won",
+  "winning_percentage" : "Winning percentage",
+  "username" : "Username",
+  "password" : "Password",
+  "sign_in" : "Sign In",
+  "please_enter_username" : "Please enter Username",
+  "username_should_be_more_than_3_characters" : "Username should be more than 3 characters",
+  "username_should_not_be_more_than_10_characters" : "Username should not be more than 10 characters",
+  "please_enter_password" : "Please enter password",
+  "password_should_be_more_than_3_characters" : "Password should be more than 3 characters",
+  "password_should_not_be_more_than_11_characters" : "Password should not be more than 11 characters",
+  "please_enter_correct_password" : "Please enter correct password",
+  "please_enter_correct_username" : "Please enter correct Username",
+  "rating" : "rating",
+  "recommended_for_you" : "Recommended for you",
+  "okay" : "OKAY",
+  "english" : "English",
+  "japanese" : "Japanese"
+}
