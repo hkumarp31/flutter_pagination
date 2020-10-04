@@ -26,99 +26,102 @@ class _UserSignInState extends State<UserSignIn> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        color: Color(0xfff9f9f9),
-        child: SafeArea(
-          child: Form(
-            key: formKey,
-            child: Padding(
-              padding: EdgeInsets.all(Constants.margin),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Container(
-                      margin: EdgeInsets.fromLTRB(0, 0, Constants.margin*2, 0),
+    return WillPopScope(
+      onWillPop: () async => false,
+      child: Scaffold(
+        body: Container(
+          color: Color(0xfff9f9f9),
+          child: SafeArea(
+            child: Form(
+              key: formKey,
+              child: Padding(
+                padding: EdgeInsets.all(Constants.margin),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.fromLTRB(0, 0, Constants.margin*2, 0),
 //                      color: Color(0xfff9f9f9),
-                      decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                              begin: Alignment.bottomLeft,
-                              end: Alignment.topRight,
-                              colors: [Colors.black12, Colors.grey]
-                          )
+                        decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.bottomLeft,
+                                end: Alignment.topRight,
+                                colors: [Colors.black12, Colors.grey]
+                            )
+                        ),
+                        child: Image.asset(
+                            "lib/AssetImages/gameTV.png"
+                        )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(Constants.margin*2, 0, Constants.margin*2, 0),
+                      child: TextFormField(
+                        maxLength: 10,
+                        maxLengthEnforced: true,
+                        decoration: ConstantDecorations.inputFieldDecoration(AppLocalizations.of(context).translate("username")),
+                        onChanged: (value) {
+                          this.userName = value;
+                        },
+                        validator: (userName){
+                          if(userName.trim().length == 0) {
+                            return AppLocalizations.of(context).translate("please_enter_username");
+                          } else if(userName.trim().length <= 3){
+                            return AppLocalizations.of(context).translate("username_should_be_more_than_3_characters");
+                          } else if (userName.trim().length > 10){
+                            return AppLocalizations.of(context).translate("username_should_not_be_more_than_10_characters");
+                          } else {
+                              return null;
+                          }
+                        },
+                        autovalidate: _autoValidate,
                       ),
-                      child: Image.asset(
-                          "lib/AssetImages/gameTV.png"
-                      )
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(Constants.margin*2, 0, Constants.margin*2, 0),
-                    child: TextFormField(
-                      maxLength: 10,
-                      maxLengthEnforced: true,
-                      decoration: ConstantDecorations.inputFieldDecoration(AppLocalizations.of(context).translate("username")),
-                      onChanged: (value) {
-                        this.userName = value;
-                      },
-                      validator: (userName){
-                        if(userName.trim().length == 0) {
-                          return AppLocalizations.of(context).translate("please_enter_username");
-                        } else if(userName.trim().length <= 3){
-                          return AppLocalizations.of(context).translate("username_should_be_more_than_3_characters");
-                        } else if (userName.trim().length > 10){
-                          return AppLocalizations.of(context).translate("username_should_not_be_more_than_10_characters");
-                        } else {
+                    ),
+                    Container(
+                      margin: EdgeInsets.fromLTRB(Constants.margin*2, 0, Constants.margin*2, 0),
+                      child: TextFormField(
+                        obscureText: true,
+                        decoration: ConstantDecorations.inputFieldDecoration(AppLocalizations.of(context).translate("password")),
+                        onChanged: (value) {
+                          this.password = value;
+                        },
+                        validator: (passWord) {
+                          if (passWord.trim().length == 0) {
+                            return AppLocalizations.of(context).translate("please_enter_password");
+                          } else if(passWord.trim().length <= 3) {
+                            return AppLocalizations.of(context).translate("password_should_be_more_than_3_characters");
+                          } else if (passWord.trim().length > 11) {
+                            return AppLocalizations.of(context).translate("password_should_not_be_more_than_11_characters");
+                          } else {
                             return null;
-                        }
-                      },
-                      autovalidate: _autoValidate,
-                    ),
-                  ),
-                  Container(
-                    margin: EdgeInsets.fromLTRB(Constants.margin*2, 0, Constants.margin*2, 0),
-                    child: TextFormField(
-                      obscureText: true,
-                      decoration: ConstantDecorations.inputFieldDecoration(AppLocalizations.of(context).translate("password")),
-                      onChanged: (value) {
-                        this.password = value;
-                      },
-                      validator: (passWord) {
-                        if (passWord.trim().length == 0) {
-                          return AppLocalizations.of(context).translate("please_enter_password");
-                        } else if(passWord.trim().length <= 3) {
-                          return AppLocalizations.of(context).translate("password_should_be_more_than_3_characters");
-                        } else if (passWord.trim().length > 11) {
-                          return AppLocalizations.of(context).translate("password_should_not_be_more_than_11_characters");
-                        } else {
-                          return null;
-                        }
-                      },
-                      autovalidate: _autoValidate,
-                    ),
-                  ),
-                  SizedBox(
-                    height: Constants.margin * 3,
-                  ),
-                  ButtonTheme(
-                    minWidth: MediaQuery.of(context).size.width - Constants.margin*6,
-                    height: 60,
-                    child: RaisedButton(
-                      child: Text(
-                        AppLocalizations.of(context).translate("sign_in"),
-                        style: ConstantDecorations.tournamentStatic(),
+                          }
+                        },
+                        autovalidate: _autoValidate,
                       ),
-                      onPressed: verifyAndLoginToDashboard,
                     ),
-                  )
-                ],
+                    SizedBox(
+                      height: Constants.margin * 3,
+                    ),
+                    ButtonTheme(
+                      minWidth: MediaQuery.of(context).size.width - Constants.margin*6,
+                      height: 60,
+                      child: RaisedButton(
+                        child: Text(
+                          AppLocalizations.of(context).translate("sign_in"),
+                          style: ConstantDecorations.tournamentStatic(),
+                        ),
+                        onPressed: verifyAndLoginToDashboard,
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+        ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
     );
   }
 

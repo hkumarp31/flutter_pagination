@@ -39,8 +39,8 @@ Future<void> main() async {
             }
             return supportedLocales.first;
           },
-          home: isUserLoggedIn != null || isUserLoggedIn == true ?
-          DashBoardScreen() : UserSignIn()
+          home: isUserLoggedIn == null || isUserLoggedIn == false ?
+          UserSignIn() : DashBoardScreen()
       )
   );
 //  runApp(MyApp());
