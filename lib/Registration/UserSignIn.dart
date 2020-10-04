@@ -38,7 +38,7 @@ class _UserSignInState extends State<UserSignIn> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                      margin: EdgeInsets.fromLTRB(Constants.margin*2, 0, Constants.margin*2, 0),
+                      margin: EdgeInsets.fromLTRB(0, 0, Constants.margin*2, 0),
 //                      color: Color(0xfff9f9f9),
                       decoration: BoxDecoration(
                           gradient: LinearGradient(
@@ -52,7 +52,7 @@ class _UserSignInState extends State<UserSignIn> {
                       )
                   ),
                   SizedBox(
-                    height: 100,
+                    height: 20,
                   ),
                   Container(
                     margin: EdgeInsets.fromLTRB(Constants.margin*2, 0, Constants.margin*2, 0),
@@ -100,7 +100,7 @@ class _UserSignInState extends State<UserSignIn> {
                     ),
                   ),
                   SizedBox(
-                    height: Constants.margin * 5,
+                    height: Constants.margin * 3,
                   ),
                   ButtonTheme(
                     minWidth: MediaQuery.of(context).size.width - Constants.margin*6,
